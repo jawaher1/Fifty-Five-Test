@@ -1,9 +1,21 @@
-.chart-card{
-    width : 70%;
-    margin-left: auto;
-    margin-right: auto;
+@media screen and (min-width: 1000px) {
+    .app-content{
+        background-color: #f4f5fd;
+       
+        padding-left: 260px;
+        padding-right: 260px;
+    }
+}
+.app-content {
+    flex: 1;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    min-height: 950px;
 }
 
 .chart{
-    width: 80%;
+width: 800px;
+//margin-top: 5rem;
 }

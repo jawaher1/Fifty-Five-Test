@@ -21,7 +21,7 @@ useTheme(am4themes_animated);
 })
 export class PlayersChartComponent implements OnInit {
   playersData: any;
-  keysList: any;
+  keysList: any = [];
   chart: any;
   chartData: any = []
 
@@ -66,14 +66,20 @@ export class PlayersChartComponent implements OnInit {
   }
 
   prepareChartData() {
-    var keysList = (this.playersData["data"]["DAILY"].dates)
+    this.keysList = (this.playersData["data"]["DAILY"].dates)
     var playerOneValuesList = (this.playersData["data"]["DAILY"].dataByMember).players["john"].points
     var playerTwoValuesList = (this.playersData["data"]["DAILY"].dataByMember).players["larry"].points
     //cleaning null Values
-    keysList.forEach(this.formatDate)
+    this.keysList.forEach(this.formatDate)
+    var keysList = this.keysList.map((x:any) =>{
+      if(typeof x !== "string"){
+        return NaN
+      }
+    return new Date(x).toString().substring(4,10)})
+    console.log(this.keysList)
     playerOneValuesList.filter(this.CleanNullValues);
     playerTwoValuesList.filter(this.CleanNullValues);
-    console.log(keysList)
+    console.log(this.keysList)
     console.log(playerOneValuesList)
     console.log(playerTwoValuesList)
 
@@ -92,16 +98,20 @@ export class PlayersChartComponent implements OnInit {
     series.dataFields.valueY = field;
     series.dataFields.dateX = date;
     series.name = name;
-    //this.scrollbarSeries = series
     series.fillOpacity = 0.1;
-    //  series.strokeWidth = 2;
+    series.columns.template.width = am4core.percent(13);
+    //series.columns.template.fill = am4core.color(color)
+    series.columns.template.fillOpacity = 0.5;
+    var columnTemplate = series.columns.template;
+    columnTemplate.strokeWidth = 2;
+    columnTemplate.strokeOpacity = 1;
     series.tooltipText = '{dateX.formatDate("d MMM, yyyy")} | {valueY}'
     series.adapter.add('tooltipText', (text: string, target: any, key: any) => {
       //retrieve point's data
       const data = target.tooltipDataItem.dataContext;
       return text;
     });
-    series.connect = true
+
     return series;
   }
 
@@ -112,6 +122,8 @@ export class PlayersChartComponent implements OnInit {
     // Create axes
     var dateAxis = this.chart.xAxes.push(new am4charts.DateAxis());
     var valueAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
+    dateAxis.tooltipDateFormat = "yyyy-MM-dd";
+   // dateAxis.dataDateFormat = "YYYY-MM-DD"
     dateAxis.dataFields.category = "date";
     dateAxis.gridAlpha = 0;
     dateAxis.autoGridCount = true;
@@ -124,17 +136,25 @@ export class PlayersChartComponent implements OnInit {
     dateAxis.axisColor = "#dcdcdc";
     dateAxis.axisThickness = 1;
     dateAxis.showLastLabel = true;
+    // Grid Customization
     dateAxis.renderer.minGridDistance = 100;
     valueAxis.renderer.minGridDistance = 60;
     dateAxis.renderer.grid.template.stroke = "#9FB2C3";
     valueAxis.renderer.grid.template.stroke = "#9FB2C3";
     valueAxis.renderer.grid.template.strokeWidth = 1;
+    //formatting yaxis Numbers
+    valueAxis.numberFormatter.numberFormat = "#,###,###";
+    //Create Series
     var series1 = this.createSeries("value", "date", "John");
     var series2 = this.createSeries("value2", "date", "Larry");
+    //font
+    dateAxis.renderer.labels.template.fontSize = 12;
+    dateAxis.renderer.labels.template.fontFamily = "Quicksand";
+    valueAxis.renderer.labels.template.fontSize = 12;
+    valueAxis.renderer.labels.template.fontFamily = "Quicksand";
     // Create series
-
     this.chart.colors.list = [am4core.color('#070919')]
-    this.chart.dateFormatter.dateFormat = "MMM dd"
+    //this.chart.dateFormatter.dateFormat = "MMM dd"
 
     this.chart.cursor = new XYCursor();
     this.chart.cursor.xAxis = dateAxis
@@ -171,18 +191,31 @@ export class PlayersChartComponent implements OnInit {
 
     let scrollSeries1 = this.chart.scrollbarX.series.getIndex(0);
     scrollSeries1.filters.clear();
-    //scrollSeries1.fillOpacity = 0;
-    //scrollSeries1.fillOpacity = 0
-    //scrollSeries1.strokeWidth = 0
+  
     this.chart.scrollbarX.series.stroke = "#0000ffff"
 
     // Pre-zoom the chart
-    /*     this.chart.events.on("ready", () => {
-          dateAxis.zoomToDates(
-            this.calcTime((this.keyslist[this.keyslist.length - 7]).toString().slice(0, 10), this.offset).toString().slice(4,10),
-            this.calcTime((this.keyslist[this.keyslist.length - 1]).toString().slice(0, 10), this.offset).toString().slice(4,10)
+         this.chart.events.on("datavalidated", () => {
+           console.log( (new Date(this.keysList[this.keysList.length - 1]).toString().slice(0, 10)).toString().slice(4,10))
+          dateAxis.zoomToDates( 
+        ((this.keysList[this.keysList.length - 10]).toString().slice(0, 10)).toString().slice(4,10),
+          ((this.keysList[this.keysList.length - 1]).toString().slice(0, 10)).toString().slice(4,10)  
           ) 
-        }); */
+        }); 
+
+    //legend
+    this.chart.legend = new am4charts.Legend()
+    this.chart.legend.useDefaultMarker = true;
+    let marker = this.chart.legend.markers.template.children.getIndex(0);
+    marker.cornerRadius(12, 12, 12, 12);
+    marker.strokeWidth = 8;
+    marker.strokeOpacity = 1;
+    marker.stroke = am4core.color("#ffffff");
+    this.chart.legend.position = "top"
+    this.chart.legend.align = "left";
+    this.chart.legend.contentAlign = "left";
+    this.chart.legend.marginLeft = 50
+    this.chart.legend.marginBottom = 20
   }
 
   customizeGrip(grip: any) {
