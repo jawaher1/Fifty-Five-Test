@@ -1,0 +1,16 @@
+.float-container {
+    display: flex;
+    padding: 0px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 0px;
+   
+}  
+@media screen and (max-width: 768px) {
+    .img-fluid{
+        max-width: 148% !important;
+    }
+}
