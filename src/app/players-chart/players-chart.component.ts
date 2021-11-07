@@ -35,10 +35,6 @@ export class PlayersChartComponent implements OnChanges {
     })
   }
 
-
-
-
-
   prepareChartData() {
     this.chartData = []
     if (this.selectedPlayerIndex != 0) {
@@ -111,8 +107,6 @@ export class PlayersChartComponent implements OnChanges {
     valueAxis.renderer.grid.template.strokeWidth = 1;
     //formatting yaxis Numbers
     valueAxis.numberFormatter.numberFormat = "#,###,###";
-
-
     //font
     dateAxis.renderer.labels.template.fontSize = 12;
     dateAxis.renderer.labels.template.fontFamily = "Quicksand";
@@ -122,12 +116,9 @@ export class PlayersChartComponent implements OnChanges {
     this.chart.cursor = new XYCursor();
     this.chart.cursor.xAxis = dateAxis
     this.chart.cursor.selection.fill = am4core.color("#c7bfbf");
-    //this.chart.cursor.snapToSeries = series;
     //the reset zoom button
     this.chart.zoomOutButton.disabled = true;
-
     //zoom when hitting xaxis
-    // Set up drill-down
     dateAxis.renderer.labels.template.events.on("hit", (ev: any) => {
       var start = ev.target.dataItem.date
       var end = new Date(start);
@@ -137,9 +128,6 @@ export class PlayersChartComponent implements OnChanges {
       }
       dateAxis.zoomToDates(start, end);
     })
-
-
-
     // Pre-zoom the chart
     this.chart.events.on("datavalidated", () => {
       if (this.keysList) {
@@ -149,8 +137,7 @@ export class PlayersChartComponent implements OnChanges {
         )
       }
     });
-
-    // Create scrollbar
+    //Create scrollbar
     this.chart.scrollbarX = new am4charts.XYChartScrollbar();
     //Create Series
     if (this.selectedPlayerIndex == 0) {
@@ -164,7 +151,7 @@ export class PlayersChartComponent implements OnChanges {
       this.chart.scrollbarX.series.push(series);
     }
 
-    // scrollbar Customization
+    //scrollbar Customization
     this.chart.scrollbarX.scrollbarChart.series.getIndex(0).xAxis.startLocation = 0.5;
     this.chart.scrollbarX.scrollbarChart.series.getIndex(0).xAxis.endLocation = 0.5;
     this.chart.scrollbarX.marginBottom = 0;

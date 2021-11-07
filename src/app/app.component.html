@@ -14,8 +14,8 @@
                   </div>
               
                   <div style="text-align: end">
-                    <button *ngFor="let item of playersList; let i = index;"
-                      [ngClass]="{'btn-first': selectedPlayer === item, 'btn-not-selected': selectedPlayer !== item}"
+                    <button *ngFor="let item of playersNames; let i = index;"
+                      [ngClass]="{'btn-first': selectedPlayer === this.playersList[this.playersNames.indexOf(item)], 'btn-not-selected': selectedPlayer !== this.playersList[this.playersNames.indexOf(item)]}"
                       class="btn mr-2 ml-2 btn-pill btn-outline-first" (click)="onChange(item);" data-style="slide-right"
                       data-spinner-size="30"> {{item}}
                     </button>

@@ -29,14 +29,14 @@
     .chart{
         margin-top: 2rem;
         }
-        .app-header {
-          width: 100% ;
-      }
-      .btn-pill {
+    .app-header {
+        width: 100% ;
+        } 
+    .btn-pill {
         margin-bottom: 0.5rem;
-      }
-      
+        }  
 }
+
 @media screen and (min-width: 850px) and (max-width: 1000px) { 
   .chart{
     width: 800px;
