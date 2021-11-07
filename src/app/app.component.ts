@@ -31,7 +31,6 @@ export class AppComponent implements OnInit {
 
   onChange(value: any) {
     this.selectedPlayer = this.playersList[this.playersNames.indexOf(value)];
-    console.log(this.selectedPlayer)
     this.selectedPlayerIndex = this.playersList.indexOf(this.selectedPlayer)
   }
 

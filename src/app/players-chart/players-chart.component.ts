@@ -68,12 +68,21 @@ export class PlayersChartComponent implements OnChanges {
     var columnTemplate = series.columns.template;
     columnTemplate.strokeWidth = 2;
     columnTemplate.strokeOpacity = 1;
-    series.tooltipText = '{dateX.formatDate("d MMM, yyyy")} | {valueY}'
+    series.columns.template.tooltipHTML = '<b>{dateX.formatDate("d MMM, yyyy")} | {valueY}</b><br> <a href="http://cdn.55labs.com/demo/api.json">More info</a>'
     series.adapter.add('tooltipText', (text: string, target: any, key: any) => {
       //retrieve point's data
       const data = target.tooltipDataItem.dataContext;
       return text;
     });
+    series.tooltip.getFillFromObject = false;
+    series.tooltip.getStrokeFromObject = true
+    series.tooltip.label.background.fill = am4core.color("#fff");
+    series.tooltip.label.fill = am4core.color("#bebebe");
+    series.tooltip.label.fontSize = 12;
+    series.tooltip.pointerOrientation = "down"
+    //interactivity with tooltip
+    series.tooltip.label.interactionsEnabled = true;
+    series.tooltip.keepTargetHover = true;
     return series;
   }
 
@@ -151,7 +160,7 @@ export class PlayersChartComponent implements OnChanges {
       this.chart.scrollbarX.series.push(series);
     }
 
-    //scrollbar Customization
+    // scrollbar Customization
     this.chart.scrollbarX.scrollbarChart.series.getIndex(0).xAxis.startLocation = 0.5;
     this.chart.scrollbarX.scrollbarChart.series.getIndex(0).xAxis.endLocation = 0.5;
     this.chart.scrollbarX.marginBottom = 0;
