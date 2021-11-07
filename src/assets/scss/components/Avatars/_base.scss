@@ -55,14 +55,14 @@
 }
 
 .avatar-icon-xs {
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: bold;
 
   .avatar-icon {
     width: 26px;
     height: 26px;
     line-height: 26px;
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
 }
 
@@ -116,4 +116,3 @@
   text-align: center;
   text-transform: uppercase;
 }
-

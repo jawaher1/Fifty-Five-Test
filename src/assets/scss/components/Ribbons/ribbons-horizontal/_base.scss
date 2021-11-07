@@ -14,7 +14,8 @@
   font-weight: bold;
   box-shadow: $box-shadow-layout-bottom;
 
-  &:before, &:after {
+  &:before,
+  &:after {
     content: "";
     position: absolute;
     height: 0;

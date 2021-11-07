@@ -1,7 +1,7 @@
 //  Core
 
 .header-search-wrapper {
-  border-right: rgba($black, .1) solid 1px;
+  border-right: rgba($black, 0.1) solid 1px;
   padding: ($spacer / 3.5) ($spacer) ($spacer / 3.5) 0;
   margin: 0 ($spacer * 2) 0 0;
   cursor: pointer;
@@ -17,7 +17,7 @@
   }
 
   @include media-breakpoint-down(md) {
-    border-left: rgba($black, .1) solid 1px;
+    border-left: rgba($black, 0.1) solid 1px;
     border-right: transparent solid 1px;
     padding: ($spacer / 3.5) ($spacer / 2);
     margin: 0 $spacer;

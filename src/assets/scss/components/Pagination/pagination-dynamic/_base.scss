@@ -48,16 +48,13 @@
         @include border-radius($border-radius-xs);
       }
 
-
       &.pagination-next,
       &.pagination-previous {
-
         span {
           padding: $pagination-padding-y 0;
           @include border-radius($border-radius-xs);
           border: transparent solid 1px;
         }
-
       }
     }
   }

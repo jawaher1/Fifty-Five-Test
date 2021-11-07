@@ -1,7 +1,19 @@
+.btn-pill {
+  font-size: 15.2px;
+  height : 36px;
+  text-align: center;
+}
+.btn-first {
+  color: #ffffff;
+
+}
+.app-content{
+  background-color: #f4f5fd;
+  min-height: 100vh;
+}
+
 @media screen and (min-width: 1000px) {
     .app-content{
-        background-color: #f4f5fd;
-        min-height: 100vh;
         padding-left: 260px;
         padding-right: 260px;
     }
@@ -9,27 +21,25 @@
     .chart{
         width: 800px;
         margin-top: 4.5rem;
-        }
+        }   
 }
 
-.btn-pill {
-    font-size: 15.2px;
-    height : 36px;
-    text-align: center;
-  }
-  .btn-first {
-    color: #ffffff;
- 
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .app-content{
-        background-color: #f4f5fd;
-        min-height: 100vh;
-    }
+@media screen and (max-width: 768px) {
 
     .chart{
         margin-top: 2rem;
         }
+        .app-header {
+          width: 100% ;
+      }
+      .btn-pill {
+        margin-bottom: 0.5rem;
+      }
+      
+}
+@media screen and (min-width: 850px) and (max-width: 1000px) { 
+  .chart{
+    width: 800px;
+    margin-top: 4.5rem;
+    }   
 }

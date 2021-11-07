@@ -154,7 +154,6 @@
   position: absolute;
 }
 
-
 /* control positioning */
 
 .leaflet-control {
@@ -212,7 +211,6 @@
   margin-right: 10px;
 }
 
-
 /* zoom and fade animations */
 
 .leaflet-fade-anim .leaflet-tile {
@@ -256,7 +254,6 @@
 .leaflet-zoom-anim .leaflet-zoom-hide {
   visibility: hidden;
 }
-
 
 /* cursors */
 
@@ -314,7 +311,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 
 .leaflet-container a {
-  color: #0078A8;
+  color: #0078a8;
 }
 
 .leaflet-container a.leaflet-active {
@@ -326,12 +323,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
   background: transparentize($white, 0.5);
 }
 
-
 /* general typography */
 .leaflet-container {
   font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-
 
 /* general toolbar styles */
 
@@ -401,14 +396,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
-  font: bold 18px 'Lucida Console', Monaco, monospace;
+  font: bold 18px "Lucida Console", Monaco, monospace;
   text-indent: 1px;
 }
 
-.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out {
+.leaflet-touch .leaflet-control-zoom-in,
+.leaflet-touch .leaflet-control-zoom-out {
   font-size: 22px;
 }
-
 
 /* layers control */
 
@@ -542,7 +537,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
   background-clip: padding-box;
 }
 
-
 /* popup */
 
 .leaflet-popup {
@@ -644,14 +638,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border: 1px solid $gray-800;
 }
 
-
 /* div icon */
 
 .leaflet-div-icon {
   background: $white;
   border: 1px solid $gray-600;
 }
-
 
 /* Tooltip */
 /* Base styles for the element that has a tooltip */

@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 $cal-month-view-vars: () !default;
 $cal-month-view-vars: map-merge($cal-vars, $cal-month-view-vars);

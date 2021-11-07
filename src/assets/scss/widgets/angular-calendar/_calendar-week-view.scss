@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 $cal-week-view-vars: () !default;
 $cal-week-view-vars: map-merge($cal-vars, $cal-week-view-vars);
@@ -252,7 +252,7 @@ $cal-week-view-vars: map-merge($cal-vars, $cal-week-view-vars);
     position: relative;
 
     &::after {
-      content: '\00a0';
+      content: "\00a0";
     }
   }
 

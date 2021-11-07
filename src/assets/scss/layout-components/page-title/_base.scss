@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba($white, .5);
+  background: rgba($white, 0.5);
   transition: $transition-base;
   &--shadow {
     box-shadow: $page-title-shadow;
@@ -18,16 +18,15 @@
     color: rgba($white, 1);
 
     .app-page-title--breadcrumb {
-
       .breadcrumb-item {
-        color: rgba($white, .5);
+        color: rgba($white, 0.5);
 
         a {
-          color: rgba($white, .5);
+          color: rgba($white, 0.5);
 
           &:hover {
-            background: rgba($white, .1);
-            color: rgba($white, .8);
+            background: rgba($white, 0.1);
+            color: rgba($white, 0.8);
           }
         }
       }
@@ -75,18 +74,17 @@
     @include media-breakpoint-down(md) {
       margin: 0 0 ($spacer * 1.5);
     }
-
   }
 
   &--description {
     margin: ($spacer / 2) 0 0;
     font-size: $font-size-base * 1.1;
-    opacity: .6;
+    opacity: 0.6;
     font-weight: normal;
   }
   &--breadcrumb {
     margin: 0 0 ($spacer);
-    opacity: .7;
+    opacity: 0.7;
     background: transparent;
     padding: 0;
 
@@ -96,7 +94,7 @@
       font-weight: bold;
       position: relative;
       padding: 0 16px 0 0;
-      color: rgba($black, .5);
+      color: rgba($black, 0.5);
 
       &:before {
         font-family: "Ionicons";
@@ -113,7 +111,7 @@
         text-align: center;
         text-indent: initial;
         display: block;
-        content: '\f3d1';
+        content: "\f3d1";
         width: 16px;
         height: 16px;
         line-height: 16px;
@@ -135,7 +133,7 @@
 
       a {
         &:hover {
-          background: rgba($primary, .1);
+          background: rgba($primary, 0.1);
           color: $primary;
         }
       }

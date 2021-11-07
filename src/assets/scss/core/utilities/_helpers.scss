@@ -59,9 +59,9 @@ button {
 $num: 30;
 @while $num < 150 {
   .d-#{$num} {
-    height: $num +0px !important;
-    line-height: $num +0px !important;
-    width: $num +0px !important;
+    height: $num + 0px !important;
+    line-height: $num + 0px !important;
+    width: $num + 0px !important;
   }
   $num: $num + 10;
 }
@@ -168,7 +168,7 @@ $num: 30;
   height: 100%;
   width: 100%;
   z-index: 3;
-  opacity: .15;
+  opacity: 0.15;
 }
 
 .bg-composed-wrapper {
@@ -220,7 +220,7 @@ $num: 30;
 // Background white 50%
 
 .bg-white-50 {
-  background-color: rgba($white, .2);
+  background-color: rgba($white, 0.2);
 }
 
 // Text dark
@@ -262,7 +262,6 @@ $num: 30;
   left: auto;
   right: 0;
 }
-
 
 // Responsive rounded
 

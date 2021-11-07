@@ -2,7 +2,7 @@
 
 @mixin rtl {
   @at-root [dir="rtl"] #{&} {
-    @content
+    @content;
   }
 }
 
@@ -119,7 +119,7 @@ $ng-select-value-font-size: $font-size-base !default;
         padding-left: 7px;
         @include rtl {
           padding-right: 7px;
-          padding-left: 0
+          padding-left: 0;
         }
         .ng-value {
           font-size: $ng-select-value-font-size;
@@ -275,7 +275,8 @@ $ng-select-value-font-size: $font-size-base !default;
       &.ng-option-marked {
         background-color: $ng-select-marked;
       }
-      &.ng-option-selected, &.ng-option-selected.ng-option-marked {
+      &.ng-option-selected,
+      &.ng-option-selected.ng-option-marked {
         background-color: $ng-select-selected;
         font-weight: 600;
       }
@@ -284,7 +285,8 @@ $ng-select-value-font-size: $font-size-base !default;
       background-color: $ng-select-bg;
       color: $gray-800;
       padding: 8px 10px;
-      &.ng-option-selected, &.ng-option-selected.ng-option-marked {
+      &.ng-option-selected,
+      &.ng-option-selected.ng-option-marked {
         color: $ng-select-primary-text;
         background-color: $ng-select-selected;
         .ng-option-label {

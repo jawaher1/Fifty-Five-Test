@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   playersData: any;
   keysList: any = [];
   valuesList: any = [];
-  playersList: string[] = ["All"]
+  playersList: string[] = ["All Players"]
   selectedPlayerIndex: number = 0;
 
   constructor(
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getData(() => {
-      this.selectedPlayer = "All"
+      this.selectedPlayer = "All Players"
       this.prepareChartData() 
     })
 
@@ -37,7 +37,6 @@ export class AppComponent implements OnInit {
     this.playersService.getPlayersData().subscribe(
       (data) => {
         this.playersData = data;
-        console.log(data)
         callback(data);
       },
       (error) => {
@@ -70,19 +69,11 @@ export class AppComponent implements OnInit {
       return new Date(x).toString().substring(4, 10)
     })
     this.playersList = this.playersList.concat(Object.keys(this.playersData["data"]["DAILY"].dataByMember.players))
-    console.log(this.playersList)
-    if(this.selectedPlayerIndex == 0){
     for (let i = 1; i< this.playersList.length; i++) {
       var valuesList = (this.playersData["data"]["DAILY"].dataByMember.players[this.playersList[i]]).points
       //Cleaning null values
       valuesList.filter(this.CleanNullValues);
       this.valuesList.push(valuesList)
     }
-  }
-  else {
-
-  }
-    console.log(this.valuesList)
-
   }
 }

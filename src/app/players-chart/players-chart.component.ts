@@ -30,7 +30,6 @@ export class PlayersChartComponent implements OnChanges {
     setTimeout(() => {
       if (this.keysList) {
         this.prepareChartData()
-        console.log(this.selectedPlayerIndex)
         this.createChartOptions(this.chartData);
       }
     })

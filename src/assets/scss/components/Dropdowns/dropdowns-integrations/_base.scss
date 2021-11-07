@@ -3,7 +3,6 @@
 // Dropdown menu
 
 .dropdown-menu {
-
   & > .bg-composed-wrapper {
     margin: (-($dropdown-padding-y)) -1px -2px;
     z-index: 5;
@@ -30,6 +29,18 @@
 
 .dropdown-menu-lg {
   min-width: 15rem;
+}
+
+@media screen and (max-width: 991px) {
+  .dropdown-menu-lg {
+    min-width: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dropdown-menu-lg {
+    margin-left: -5rem;
+  }
 }
 
 .dropdown-menu-xl {

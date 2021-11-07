@@ -1,7 +1,7 @@
 //  Core
 
 .header-nav-wrapper {
-  min-height: $header-height-sm;
+  min-height: $header-height;
   align-items: center;
   display: flex;
   position: relative;
@@ -33,7 +33,7 @@
         i {
           height: 40px;
           width: 40px;
-          background: rgba($white, .5);
+          background: rgba($white, 0.5);
           display: flex;
           align-items: center;
           @include border-radius($border-radius);
@@ -79,7 +79,7 @@
   }
 
   &.header-nav-wrapper-lg {
-    min-height: $header-height-sm;
+    min-height: $header-height-lg;
   }
 
   &.header-nav-wrapper-xl {
@@ -168,7 +168,7 @@
   // Translucent header
 
   &.navbar-white-50 {
-    background: rgba($white, .15);
+    background: rgba($white, 0.15);
   }
 }
 
@@ -188,9 +188,9 @@
   }
 
   &:after {
-    content: '';
+    content: "";
     position: fixed;
-    background: rgba($black, .1);
+    background: rgba($black, 0.1);
     width: 100%;
     height: 100%;
     z-index: 5;
@@ -217,7 +217,6 @@
 
 .navbar-dark {
   .hamburger {
-
     .hamburger-inner {
       &,
       &::before,
@@ -238,7 +237,6 @@
 
 .navbar-light {
   .hamburger {
-
     .hamburger-inner {
       &,
       &::before,
@@ -260,7 +258,6 @@
 // Alternate style for collapsed
 
 .nav-collapse-alt {
-
   .navbar-collapse-header {
     position: absolute;
     right: $spacer;

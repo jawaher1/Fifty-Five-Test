@@ -23,7 +23,7 @@
     }
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 14px;
       left: 0;
@@ -34,9 +34,9 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       display: table;
-      clear: both
+      clear: both;
     }
   }
 

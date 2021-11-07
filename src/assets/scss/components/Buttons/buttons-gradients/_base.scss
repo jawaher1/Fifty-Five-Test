@@ -15,14 +15,14 @@
     background: $white;
     opacity: 0;
     transition: $transition-base;
-    content: '';
+    content: "";
   }
 
   &:hover {
     color: $white;
 
     &:after {
-      opacity: .15;
+      opacity: 0.15;
     }
   }
 }

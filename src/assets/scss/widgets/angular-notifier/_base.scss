@@ -1,11 +1,9 @@
 // Angular notifier
 
-$notifier-shadow-color: rgba(0, 0, 0, .2) !default;
+$notifier-shadow-color: rgba(0, 0, 0, 0.2) !default;
 
 .notifier {
-
   &__container {
-
     &-list {
       margin: {
         top: 0;
@@ -16,7 +14,6 @@ $notifier-shadow-color: rgba(0, 0, 0, .2) !default;
       }
       list-style-type: none;
     }
-
   }
 
   &__notification {
@@ -41,7 +38,6 @@ $notifier-shadow-color: rgba(0, 0, 0, .2) !default;
   }
 
   .notifier__notification {
-
     &-message {
       display: inline-block;
       margin: {
@@ -55,12 +51,12 @@ $notifier-shadow-color: rgba(0, 0, 0, .2) !default;
 
     &-button {
       display: inline-block;
-      transition: opacity .2s ease;
-      opacity: .5;
+      transition: opacity 0.2s ease;
+      opacity: 0.5;
       margin: {
         right: -10px;
         left: 10px;
-      };
+      }
       outline: none;
       border: none;
       background: none;
@@ -76,12 +72,10 @@ $notifier-shadow-color: rgba(0, 0, 0, .2) !default;
       }
 
       &:active {
-        transform: scale(.82);
+        transform: scale(0.82);
         opacity: 1;
       }
-
     }
-
   }
 }
 

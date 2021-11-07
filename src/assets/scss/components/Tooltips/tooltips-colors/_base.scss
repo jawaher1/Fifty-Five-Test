@@ -2,7 +2,6 @@
 
 @each $color, $value in $theme-colors {
   .tooltip-#{$color} {
-
     &.show {
       opacity: 1;
     }

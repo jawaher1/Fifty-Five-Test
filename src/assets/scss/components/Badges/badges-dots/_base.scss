@@ -17,7 +17,7 @@
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       background: $white;
       width: 8px;
       height: 8px;
@@ -28,5 +28,4 @@
       @include border-radius(100%);
     }
   }
-
 }

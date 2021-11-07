@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 $cal-day-view-vars: () !default;
 $cal-day-view-vars: map-merge($cal-vars, $cal-day-view-vars);
@@ -54,7 +54,7 @@ $cal-day-view-vars: map-merge($cal-vars, $cal-day-view-vars);
   }
 
   .cal-hour-segment::after {
-    content: '\00a0';
+    content: "\00a0";
   }
 
   .cal-hour:not(:last-child) .cal-hour-segment,

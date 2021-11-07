@@ -23,7 +23,7 @@
         text-align: left;
         font-size: $font-size-base;
         color: $gray-900;
-        background: rgba($white, .5);
+        background: rgba($white, 0.5);
         cursor: pointer;
         padding: ($spacer * 1.5) ($spacer * 3);
         @include border-top-radius($border-radius);

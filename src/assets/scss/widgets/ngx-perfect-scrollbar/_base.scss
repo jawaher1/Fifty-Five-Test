@@ -40,13 +40,12 @@ perfect-scrollbar {
   .ps .ps__rail-y:focus,
   .ps .ps__rail-x.ps--clicking,
   .ps .ps__rail-y.ps--clicking {
-    background-color: rgba($black, .4) !important;
+    background-color: rgba($black, 0.4) !important;
     opacity: 0.9;
   }
 
-
   .ps__thumb-x {
-    background-color: rgba($white, .4) !important;
+    background-color: rgba($white, 0.4) !important;
     border-radius: 1px !important;
     height: 6px;
     bottom: 2px;
@@ -54,7 +53,7 @@ perfect-scrollbar {
   }
 
   .ps__thumb-y {
-    background-color: rgba($white, .4) !important;
+    background-color: rgba($white, 0.4) !important;
     border-radius: 1px !important;
     width: 6px;
     right: 2px;
@@ -64,23 +63,23 @@ perfect-scrollbar {
   .ps__rail-x:hover > .ps__thumb-x,
   .ps__rail-x:focus > .ps__thumb-x,
   .ps__rail-x.ps--clicking .ps__thumb-x {
-    background-color: rgba($black, .4) !important;
+    background-color: rgba($black, 0.4) !important;
     height: 11px;
   }
 
   .ps__rail-y:hover > .ps__thumb-y,
   .ps__rail-y:focus > .ps__thumb-y,
   .ps__rail-y.ps--clicking .ps__thumb-y {
-    background-color: rgba($black, .4) !important;
+    background-color: rgba($black, 0.4) !important;
     width: 11px;
   }
 
   & > .ps.ps--scrolling-y > .ps__rail-y,
   .ps .ps__rail-y:hover {
-    background-color: rgba($black, .05) !important;
+    background-color: rgba($black, 0.05) !important;
   }
 
   .ps__thumb-y {
-    background-color: rgba($black, .15) !important;
+    background-color: rgba($black, 0.15) !important;
   }
 }

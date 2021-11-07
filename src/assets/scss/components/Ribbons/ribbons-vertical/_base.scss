@@ -26,7 +26,8 @@
     border-right: 6px solid transparent;
   }
 
-  &:before, &:after {
+  &:before,
+  &:after {
     content: "";
     position: absolute;
   }

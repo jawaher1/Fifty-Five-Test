@@ -13,7 +13,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    box-shadow: inset 0 0 2.3rem .5rem $black;
+    box-shadow: inset 0 0 2.3rem 0.5rem $black;
     display: flex;
     align-items: center;
     align-content: center;
@@ -43,7 +43,7 @@
       height: 100%;
       transition: $transition-base;
       background: $black;
-      opacity: .85;
+      opacity: 0.85;
     }
   }
 

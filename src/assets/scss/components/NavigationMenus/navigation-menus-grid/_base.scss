@@ -1,15 +1,13 @@
 //  Core
 
 .grid-menu {
-
   [class*="col-"] {
     border-right: $border-color solid 0;
     border-bottom: $border-color solid 1px;
   }
 
   @include media-breakpoint-between(sm, xl) {
-
-    [class*="col-"]:nth-last-child(-n+2) {
+    [class*="col-"]:nth-last-child(-n + 2) {
       border-bottom-width: 0;
     }
 
@@ -22,15 +20,13 @@
     }
   }
 
-  [class*="col-"]:nth-last-child(-n+1) {
+  [class*="col-"]:nth-last-child(-n + 1) {
     border-bottom-width: 0;
   }
 
   &.grid-menu-3col {
-
     @include media-breakpoint-up(xl) {
-
-      [class*="col-"]:nth-last-child(-n+3) {
+      [class*="col-"]:nth-last-child(-n + 3) {
         border-bottom-width: 0;
       }
 

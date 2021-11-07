@@ -34,12 +34,10 @@
         }
       }
     }
-
   }
 }
 
 @include media-breakpoint-down(lg) {
-
   .tabs-responsive {
     .nav.nav-tabs {
       flex-wrap: wrap;
@@ -54,7 +52,6 @@
 }
 
 @include media-breakpoint-down(md) {
-
   .tabs-responsive {
     .nav.nav-tabs {
       flex-wrap: wrap;

@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 $cal-tooltip-vars: () !default;
 $cal-tooltip-vars: map-merge($cal-vars, $cal-tooltip-vars);

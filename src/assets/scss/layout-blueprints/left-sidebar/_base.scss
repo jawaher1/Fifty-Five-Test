@@ -49,11 +49,21 @@ body {
 }
 
 // Fixed sidebar
-
+@media screen and (min-width: 1000px) {
+  .app-sidebar-fixed {
+    .app-content {
+      padding-left: $sidebar-width;
+      padding-right : $sidebar-width;
+    }
+  }
+}
+@media screen and (max-width: 768px){
 .app-sidebar-fixed {
   .app-content {
-    padding-left: $sidebar-width;
+    padding-left: 0;
+    padding-right : 0;
   }
+}
 }
 
 @include media-breakpoint-down(md) {

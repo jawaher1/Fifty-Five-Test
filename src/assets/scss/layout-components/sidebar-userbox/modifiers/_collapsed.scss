@@ -2,7 +2,6 @@
 
 .app-sidebar-collapsed {
   .app-sidebar {
-
     &--userbox {
       background: transparent;
 
@@ -15,7 +14,6 @@
 
     &:not(.app-sidebar--mini):hover {
       .app-sidebar--userbox {
-
         .userbox-details,
         .btn-userbox,
         .card-tr-actions {

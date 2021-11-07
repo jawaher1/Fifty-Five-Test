@@ -6,13 +6,13 @@
   padding: ($spacer) 0 0;
 
   &::after {
-    content: '';
+    content: "";
     display: table;
-    clear: both
+    clear: both;
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 14px;
@@ -50,7 +50,7 @@
     border-radius: 20px;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       background: $white;
       left: 50%;
@@ -101,7 +101,6 @@
 }
 
 .timeline-list-offset {
-
   &:before {
     left: 76px !important;
   }
@@ -109,7 +108,7 @@
   .timeline-item-offset {
     position: absolute;
     left: 0;
-    opacity: .5;
+    opacity: 0.5;
     width: 50px;
     text-align: right;
   }

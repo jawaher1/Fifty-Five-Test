@@ -2,7 +2,7 @@
 
 // Ribbon mixin
 
-@mixin ribbon ($bgcolor1, $bgcolor2, $position: top-right) {
+@mixin ribbon($bgcolor1, $bgcolor2, $position: top-right) {
   > small {
     color: color-yiq($bgcolor1);
     background-color: $bgcolor1;
@@ -17,7 +17,7 @@
   width: 120px;
   height: 120px;
   overflow: hidden;
-  
+
   & > small {
     position: absolute;
     display: block;
@@ -35,7 +35,7 @@
 
     & > small {
       transform: rotate(45deg);
-      @include box-shadow(0 3px 6px -3px rgba($black, .5));
+      @include box-shadow(0 3px 6px -3px rgba($black, 0.5));
       top: 16px;
       left: 27px;
     }
@@ -47,7 +47,7 @@
 
     & > small {
       transform: rotate(-45deg);
-      @include box-shadow(0 3px 6px -3px rgba($black, .5));
+      @include box-shadow(0 3px 6px -3px rgba($black, 0.5));
       top: 16px;
       left: -27px;
     }
@@ -59,7 +59,7 @@
 
     & > small {
       transform: rotate(-50deg);
-      @include box-shadow(0 -3px 6px -3px rgba($black, .5));
+      @include box-shadow(0 -3px 6px -3px rgba($black, 0.5));
       bottom: 21px;
       right: -31px;
     }
@@ -71,7 +71,7 @@
 
     & > small {
       transform: rotate(50deg);
-      @include box-shadow(0 -3px 6px -3px rgba($black, .5));
+      @include box-shadow(0 -3px 6px -3px rgba($black, 0.5));
       bottom: 21px;
       left: -31px;
     }

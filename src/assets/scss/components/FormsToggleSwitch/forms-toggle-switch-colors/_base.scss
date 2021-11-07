@@ -3,7 +3,6 @@
 @each $color, $value in $theme-colors {
   .toggle-switch-#{$color} {
     .switch {
-
       &.checked {
         background: $value;
         color: color-yiq($value);

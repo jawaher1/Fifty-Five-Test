@@ -17,7 +17,6 @@
   }
 
   @include media-breakpoint-down(md) {
-
     .app-header--pane + .app-header--pane {
       transition: $transition-base;
       transform: scale(1);
@@ -54,9 +53,11 @@
   .app-header-fixed {
     .app-header {
       position: fixed;
-      left: $sidebar-width;
+      left: 0 ;
       right: 0;
       margin-left: 0;
+      height: 64px;
+      
     }
   }
 }
@@ -65,7 +66,7 @@
 @include media-breakpoint-up(lg) {
   .app-sidebar-fixed:not(.app-header-fixed) {
     .app-header {
-      margin-left: $sidebar-width;
+      margin-left: 0;
     }
   }
 }
@@ -74,7 +75,6 @@
 
 @include media-breakpoint-up(lg) {
   .app-sidebar-collapsed:not(.app-header-fixed) {
-
     .app-header {
       margin-left: $sidebar-width-collapsed;
       left: 0;

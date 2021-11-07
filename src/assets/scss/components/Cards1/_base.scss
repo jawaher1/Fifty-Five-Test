@@ -25,7 +25,7 @@
 }
 
 .card-border-top {
-  border-top-width: 3px;
+  border-top-width: 3px !important;
   border-top-style: solid;
 }
 
@@ -36,7 +36,7 @@
   z-index: 2;
 
   & > * {
-    box-shadow: $box-shadow-layout-bottom;;
+    box-shadow: $box-shadow-layout-bottom;
   }
 }
 
@@ -76,7 +76,7 @@
     & > small {
       text-transform: uppercase;
       display: block;
-      opacity: .3;
+      opacity: 0.3;
       font-weight: bold;
 
       & + b {
@@ -94,14 +94,14 @@
 }
 
 .card-hover-indicator {
-  opacity: .2;
+  opacity: 0.2;
   transition: $transition-base;
 }
 
 .card.card-box:hover {
   .card-hover-indicator {
-    opacity: .8;
-    transform: scale(1.3)
+    opacity: 0.8;
+    transform: scale(1.3);
   }
 }
 
@@ -126,7 +126,6 @@
       padding-bottom: 0;
     }
   }
-
 }
 
 // Align elements
@@ -141,7 +140,6 @@
 
 .chat-wrapper {
   .chat-item {
-
     .chat-box {
       position: relative;
       opacity: 1;
@@ -211,7 +209,8 @@
 
 @each $color, $value in $theme-colors {
   .card-shadow-#{$color} {
-    box-shadow: 0 0.46875rem 2.1875rem rgba($value, 0.03), 0 0.9375rem 1.40625rem rgba($value, 0.03), 0 0.25rem 0.53125rem rgba($value, 0.05), 0 0.125rem 0.1875rem rgba($value, 0.03)
+    box-shadow: 0 0.46875rem 2.1875rem rgba($value, 0.03), 0 0.9375rem 1.40625rem rgba($value, 0.03),
+      0 0.25rem 0.53125rem rgba($value, 0.05), 0 0.125rem 0.1875rem rgba($value, 0.03);
   }
 }
 

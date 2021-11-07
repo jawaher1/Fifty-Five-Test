@@ -6,11 +6,11 @@
 
       .collapse-sidebar-btn {
         background: transparent;
-        color: rgba($black, .8);
+        color: rgba($black, 0.8);
         opacity: 1;
 
         &:hover {
-          background: rgba($black, .03);
+          background: rgba($black, 0.03);
           color: $primary;
         }
       }
@@ -23,7 +23,7 @@
       }
 
       &:after {
-        background: rgba($black, .07);
+        background: rgba($black, 0.07);
       }
 
       .nav-logo {
@@ -31,7 +31,7 @@
           color: $primary;
 
           i {
-            background: rgba($primary, .05);
+            background: rgba($primary, 0.05);
           }
         }
       }
@@ -50,11 +50,11 @@
 
       .collapse-sidebar-btn {
         background: transparent;
-        color: rgba($white, .8);
+        color: rgba($white, 0.8);
         opacity: 1;
 
         &:hover {
-          background: rgba($white, .03);
+          background: rgba($white, 0.03);
           color: $white;
         }
       }
@@ -67,7 +67,7 @@
       }
 
       &:after {
-        background: rgba($black, .09);
+        background: rgba($black, 0.09);
       }
 
       .nav-logo {
@@ -75,7 +75,7 @@
           color: $white;
 
           i {
-            background: rgba($white, .15);
+            background: rgba($white, 0.15);
           }
         }
       }

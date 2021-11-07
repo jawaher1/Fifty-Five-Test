@@ -3,63 +3,59 @@
 .app-sidebar {
   &--light {
     .app-sidebar--footer {
-      background: rgba($primary, .04);
-      box-shadow: 0 -0.46875rem 0.1375rem rgba($gray-600, .1),
-      0 -0.9375rem 0.32625rem rgba($gray-600, .1),
-      0 -0.25rem 0.12125rem rgba($gray-600, .2),
-      0 -0.125rem 0.0775rem rgba($gray-600, .1);
+      background: rgba($primary, 0.04);
+      box-shadow: 0 -0.46875rem 0.1375rem rgba($gray-600, 0.1), 0 -0.9375rem 0.32625rem rgba($gray-600, 0.1),
+        0 -0.25rem 0.12125rem rgba($gray-600, 0.2), 0 -0.125rem 0.0775rem rgba($gray-600, 0.1);
 
       .btn {
-        color: rgba($primary, .5);
+        color: rgba($primary, 0.5);
 
         i-feather {
-          fill: rgba($primary, .15);
+          fill: rgba($primary, 0.15);
         }
 
         &.active,
         &:active,
         &:focus,
         &:hover {
-          color: rgba($primary, .9);
-          background: rgba($primary, .1);
+          color: rgba($primary, 0.9);
+          background: rgba($primary, 0.1);
 
           i-feather {
-            fill: rgba($primary, .25);
+            fill: rgba($primary, 0.25);
           }
         }
       }
 
       ul {
         li {
-          border-right-color: rgba($primary, .1);
+          border-right-color: rgba($primary, 0.1);
         }
       }
     }
 
     &.app-sidebar--lighter {
       .app-sidebar--footer {
-        background: rgba($black, .04);
-        box-shadow: 0 -0.46875rem 0.1375rem rgba($black, .03),
-        0 -0.9375rem 0.32625rem rgba($black, .03),
-        0 -0.25rem 0.12125rem rgba($black, .06),
-        0 -0.125rem 0.0775rem rgba($black, .03);
+        background: rgba($black, 0.04);
+        box-shadow: 0 -0.46875rem 0.1375rem rgba($black, 0.03), 0 -0.9375rem 0.32625rem rgba($black, 0.03),
+          0 -0.25rem 0.12125rem rgba($black, 0.06), 0 -0.125rem 0.0775rem rgba($black, 0.03);
 
         .btn {
-          color: rgba($white, .5);
+          color: rgba($white, 0.5);
 
           i-feather {
-            fill: rgba($white, .15);
+            fill: rgba($white, 0.15);
           }
 
           &.active,
           &:active,
           &:focus,
           &:hover {
-            color: rgba($white, .9);
-            background: rgba($white, .1);
+            color: rgba($white, 0.9);
+            background: rgba($white, 0.1);
 
             i-feather {
-              fill: rgba($white, .25);
+              fill: rgba($white, 0.25);
             }
           }
         }

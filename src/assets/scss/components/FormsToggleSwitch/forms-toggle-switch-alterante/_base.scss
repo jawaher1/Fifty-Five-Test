@@ -1,7 +1,6 @@
 //  Core
 
 .toggle-switch-square {
-
   .switch {
     @include border-radius($border-radius-sm);
   }
@@ -13,7 +12,6 @@
 
 .toggle-switch-line {
   .switch {
-
     small {
       border: transparent solid 1px;
       top: 50%;

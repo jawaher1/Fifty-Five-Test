@@ -54,25 +54,25 @@
 
     &.pagination-next .page-link {
       &:before {
-        content: '\f3d1';
+        content: "\f3d1";
       }
     }
 
     &.pagination-last .page-link {
       &:before {
-        content: '\f114';
+        content: "\f114";
       }
     }
 
     &.pagination-first .page-link {
       &:before {
-        content: '\f112';
+        content: "\f112";
       }
     }
 
     &.pagination-prev .page-link {
       &:before {
-        content: '\f3cf';
+        content: "\f3cf";
       }
     }
   }

@@ -5,7 +5,7 @@
 
   thead th {
     text-transform: uppercase;
-    background: $gray-200;
+    background: #f8f9fa;
     font-size: $font-size-sm;
   }
 
@@ -13,7 +13,8 @@
     transition: $transition-base;
   }
 
-  td, th {
+  td,
+  th {
     vertical-align: middle;
   }
 
@@ -27,5 +28,3 @@
     }
   }
 }
-
-

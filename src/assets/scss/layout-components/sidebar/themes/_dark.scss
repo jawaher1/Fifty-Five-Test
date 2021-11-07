@@ -10,11 +10,11 @@
 
     perfect-scrollbar > .ps.ps--scrolling-y > .ps__rail-y,
     .ps .ps__rail-y:hover {
-      background-color: rgba($black,.05) !important;
+      background-color: rgba($black, 0.05) !important;
     }
 
     .ps__thumb-y {
-      background-color: rgba($black,.15) !important;
+      background-color: rgba($black, 0.15) !important;
     }
   }
 }

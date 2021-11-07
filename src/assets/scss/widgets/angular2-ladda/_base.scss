@@ -16,11 +16,11 @@ $spinnerSize: 32px !default;
  * MIXINS
  */
 
-@mixin transition( $value ) {
+@mixin transition($value) {
   transition: $value !important;
 }
 
-@mixin transform( $value ) {
+@mixin transform($value) {
   transform: $value;
 }
 
@@ -29,7 +29,8 @@ $spinnerSize: 32px !default;
  */
 
 @keyframes ladda-spinner-line-fade {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.22; /* minimum opacity */
   }
   1% {
@@ -97,15 +98,15 @@ $spinnerSize: 32px !default;
 .ladda-button,
 .ladda-button .ladda-spinner,
 .ladda-button .ladda-label {
-  @include transition(0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) all);
+  @include transition(0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all);
 }
 
-.ladda-button[data-style=zoom-in],
-.ladda-button[data-style=zoom-in] .ladda-spinner,
-.ladda-button[data-style=zoom-in] .ladda-label,
-.ladda-button[data-style=zoom-out],
-.ladda-button[data-style=zoom-out] .ladda-spinner,
-.ladda-button[data-style=zoom-out] .ladda-label {
+.ladda-button[data-style="zoom-in"],
+.ladda-button[data-style="zoom-in"] .ladda-spinner,
+.ladda-button[data-style="zoom-in"] .ladda-label,
+.ladda-button[data-style="zoom-out"],
+.ladda-button[data-style="zoom-out"] .ladda-spinner,
+.ladda-button[data-style="zoom-out"] .ladda-label {
   @include transition(0.3s ease all);
 }
 
@@ -113,7 +114,7 @@ $spinnerSize: 32px !default;
  * EXPAND RIGHT
  */
 
-.ladda-button[data-style=expand-right] {
+.ladda-button[data-style="expand-right"] {
   .ladda-spinner {
     right: $spinnerSize/-2 + 10;
   }
@@ -141,7 +142,7 @@ $spinnerSize: 32px !default;
  * EXPAND LEFT
  */
 
-.ladda-button[data-style=expand-left] {
+.ladda-button[data-style="expand-left"] {
   .ladda-spinner {
     left: $spinnerSize/2 + 10;
   }
@@ -169,7 +170,7 @@ $spinnerSize: 32px !default;
  * EXPAND UP
  */
 
-.ladda-button[data-style=expand-up] {
+.ladda-button[data-style="expand-up"] {
   overflow: hidden;
 
   .ladda-spinner {
@@ -202,7 +203,7 @@ $spinnerSize: 32px !default;
  * EXPAND DOWN
  */
 
-.ladda-button[data-style=expand-down] {
+.ladda-button[data-style="expand-down"] {
   overflow: hidden;
 
   .ladda-spinner {
@@ -233,7 +234,7 @@ $spinnerSize: 32px !default;
 /*************************************
  * SLIDE LEFT
  */
-.ladda-button[data-style=slide-left] {
+.ladda-button[data-style="slide-left"] {
   overflow: hidden;
 
   .ladda-label {
@@ -259,7 +260,7 @@ $spinnerSize: 32px !default;
 /*************************************
  * SLIDE RIGHT
  */
-.ladda-button[data-style=slide-right] {
+.ladda-button[data-style="slide-right"] {
   overflow: hidden;
 
   .ladda-label {
@@ -290,7 +291,7 @@ $spinnerSize: 32px !default;
 /*************************************
  * SLIDE UP
  */
-.ladda-button[data-style=slide-up] {
+.ladda-button[data-style="slide-up"] {
   overflow: hidden;
 
   .ladda-label {
@@ -317,7 +318,7 @@ $spinnerSize: 32px !default;
 /*************************************
  * SLIDE DOWN
  */
-.ladda-button[data-style=slide-down] {
+.ladda-button[data-style="slide-down"] {
   overflow: hidden;
 
   .ladda-label {
@@ -345,29 +346,29 @@ $spinnerSize: 32px !default;
  * ZOOM-OUT
  */
 
-.ladda-button[data-style=zoom-out] {
+.ladda-button[data-style="zoom-out"] {
   overflow: hidden;
 }
 
-.ladda-button[data-style=zoom-out] .ladda-spinner {
+.ladda-button[data-style="zoom-out"] .ladda-spinner {
   left: 50%;
   margin-left: $spinnerSize;
 
   @include transform(scale(2.5));
 }
 
-.ladda-button[data-style=zoom-out] .ladda-label {
+.ladda-button[data-style="zoom-out"] .ladda-label {
   position: relative;
   display: inline-block;
 }
 
-.ladda-button[data-style=zoom-out][data-loading] .ladda-label {
+.ladda-button[data-style="zoom-out"][data-loading] .ladda-label {
   opacity: 0;
 
   @include transform(scale(0.5));
 }
 
-.ladda-button[data-style=zoom-out][data-loading] .ladda-spinner {
+.ladda-button[data-style="zoom-out"][data-loading] .ladda-spinner {
   opacity: 1;
   margin-left: 0;
 
@@ -378,29 +379,29 @@ $spinnerSize: 32px !default;
  * ZOOM-IN
  */
 
-.ladda-button[data-style=zoom-in] {
+.ladda-button[data-style="zoom-in"] {
   overflow: hidden;
 }
 
-.ladda-button[data-style=zoom-in] .ladda-spinner {
+.ladda-button[data-style="zoom-in"] .ladda-spinner {
   left: 50%;
   margin-left: $spinnerSize/-2;
 
   @include transform(scale(0.2));
 }
 
-.ladda-button[data-style=zoom-in] .ladda-label {
+.ladda-button[data-style="zoom-in"] .ladda-label {
   position: relative;
   display: inline-block;
 }
 
-.ladda-button[data-style=zoom-in][data-loading] .ladda-label {
+.ladda-button[data-style="zoom-in"][data-loading] .ladda-label {
   opacity: 0;
 
   @include transform(scale(2.2));
 }
 
-.ladda-button[data-style=zoom-in][data-loading] .ladda-spinner {
+.ladda-button[data-style="zoom-in"][data-loading] .ladda-spinner {
   opacity: 1;
   margin-left: 0;
 
@@ -411,26 +412,26 @@ $spinnerSize: 32px !default;
  * CONTRACT
  */
 
-.ladda-button[data-style=contract] {
+.ladda-button[data-style="contract"] {
   overflow: hidden;
   width: 100px;
 }
 
-.ladda-button[data-style=contract] .ladda-spinner {
+.ladda-button[data-style="contract"] .ladda-spinner {
   left: 50%;
   margin-left: 0;
 }
 
-.ladda-button[data-style=contract][data-loading] {
+.ladda-button[data-style="contract"][data-loading] {
   border-radius: 50%;
   width: 52px;
 }
 
-.ladda-button[data-style=contract][data-loading] .ladda-label {
+.ladda-button[data-style="contract"][data-loading] .ladda-label {
   opacity: 0;
 }
 
-.ladda-button[data-style=contract][data-loading] .ladda-spinner {
+.ladda-button[data-style="contract"][data-loading] .ladda-spinner {
   opacity: 1;
 }
 
@@ -438,19 +439,19 @@ $spinnerSize: 32px !default;
  * OVERLAY
  */
 
-.ladda-button[data-style=contract-overlay] {
+.ladda-button[data-style="contract-overlay"] {
   overflow: hidden;
   width: 100px;
 
   box-shadow: 0px 0px 0px 2000px rgba(0, 0, 0, 0);
 }
 
-.ladda-button[data-style=contract-overlay] .ladda-spinner {
+.ladda-button[data-style="contract-overlay"] .ladda-spinner {
   left: 50%;
   margin-left: 0;
 }
 
-.ladda-button[data-style=contract-overlay][data-loading] {
+.ladda-button[data-style="contract-overlay"][data-loading] {
   border-radius: 50%;
   width: 52px;
 
@@ -458,11 +459,11 @@ $spinnerSize: 32px !default;
   box-shadow: 0px 0px 0px 2000px rgba(0, 0, 0, 0.8);
 }
 
-.ladda-button[data-style=contract-overlay][data-loading] .ladda-label {
+.ladda-button[data-style="contract-overlay"][data-loading] .ladda-label {
   opacity: 0;
 }
 
-.ladda-button[data-style=contract-overlay][data-loading] .ladda-spinner {
+.ladda-button[data-style="contract-overlay"][data-loading] .ladda-spinner {
   opacity: 1;
 }
 

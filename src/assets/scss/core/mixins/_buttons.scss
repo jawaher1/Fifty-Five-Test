@@ -3,7 +3,14 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-@mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+@mixin button-variant(
+  $background,
+  $border,
+  $hover-background: darken($background, 7.5%),
+  $hover-border: darken($border, 10%),
+  $active-background: darken($background, 10%),
+  $active-border: darken($border, 12.5%)
+) {
   color: color-yiq($background);
   @include gradient-bg($background);
   border-color: $background;
@@ -19,9 +26,9 @@
   &.focus {
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $enable-shadows and $btn-active-box-shadow != none {
-      box-shadow: 0 0 0 0 rgba(0,0,0,0);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     } @else {
-      box-shadow: 0 0 0 0 rgba(0,0,0,0);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
   }
 
@@ -50,15 +57,20 @@
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
       @if $enable-shadows and $btn-active-box-shadow != none {
-        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
       } @else {
-        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
       }
     }
   }
 }
 
-@mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+@mixin button-outline-variant(
+  $color,
+  $color-hover: color-yiq($color),
+  $active-background: $color,
+  $active-border: $color
+) {
   color: $color;
   border-color: $color;
 
@@ -70,7 +82,7 @@
 
   &:focus,
   &.focus {
-    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
 
   &.disabled,
@@ -89,9 +101,9 @@
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
       @if $enable-shadows and $btn-active-box-shadow != none {
-        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
       } @else {
-        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
       }
     }
   }
@@ -105,3 +117,4 @@
   // Manually declare to provide an override to the browser default
   @include border-radius($border-radius, 0);
 }
+

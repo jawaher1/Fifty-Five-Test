@@ -7,11 +7,11 @@
 
       .collapse-sidebar-btn {
         background: transparent;
-        color: rgba($white, .8);
+        color: rgba($white, 0.8);
         opacity: 1;
 
         &:hover {
-          background: rgba($black, .2);
+          background: rgba($black, 0.2);
           color: $white;
         }
       }
@@ -22,7 +22,7 @@
         box-shadow: $box-shadow-sm;
       }
       &:after {
-        background: rgba($white, .15);
+        background: rgba($white, 0.15);
       }
 
       .nav-logo {

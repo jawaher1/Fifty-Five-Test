@@ -17,7 +17,7 @@
       line-height: 34px;
       margin: -18px -18px 0 0;
       top: 50%;
-      padding: 0;
+      padding: 0 !important;
       visibility: hidden;
       opacity: 0;
     }
@@ -43,7 +43,6 @@
 
     &--header {
       .nav-logo {
-
         i {
           left: 11px;
           margin-right: 0;
@@ -59,7 +58,6 @@
     &:not(.app-sidebar--mini):hover {
       .app-sidebar--header {
         .nav-logo {
-
           i {
             left: 0;
             margin-right: ($layout-spacer / 2.5);
