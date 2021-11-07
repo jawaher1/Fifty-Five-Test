@@ -1,16 +1,11 @@
-import { PlayersDataService } from '../@core/services/players-data/players-data.service';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import {
-  ValueAxis,
-  CircleBullet,
   XYCursor,
-  XYChart,
-  LineSeries,
-  DateAxis
+  XYChart
 } from '@amcharts/amcharts4/charts';
 import * as am4charts from "@amcharts/amcharts4/charts";
 import * as am4core from "@amcharts/amcharts4/core";
-import { color, create, useTheme } from '@amcharts/amcharts4/core';
+import { create, useTheme } from '@amcharts/amcharts4/core';
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.options.autoSetClassName = true;
 useTheme(am4themes_animated);
@@ -19,77 +14,51 @@ useTheme(am4themes_animated);
   templateUrl: './players-chart.component.html',
   styleUrls: ['./players-chart.component.scss']
 })
-export class PlayersChartComponent implements OnInit {
-  playersData: any;
-  keysList: any = [];
+export class PlayersChartComponent implements OnChanges {
+  @Input() keysList: string[];
+  @Input() valuesList: string[];
+  @Input() selectedPlayerIndex: number = 0;
+  @Input() playersList: string[]
   chart: any;
   chartData: any = []
 
   constructor(
-    private playersService: PlayersDataService
   ) { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.chart = create("chart-div", XYChart);
-    this.getData(() => {
-      this.prepareChartData()
-      console.log(this.chartData)
-      this.createChartOptions(this.chartData);
-
+    setTimeout(() => {
+      if (this.keysList) {
+        this.prepareChartData()
+        console.log(this.selectedPlayerIndex)
+        this.createChartOptions(this.chartData);
+      }
     })
   }
 
-  getData(callback: Function) {
-    this.playersService.getPlayersData().subscribe(
-      (data) => {
-        this.playersData = data;
-        console.log(data)
-        callback(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
 
-  formatDate(date: string, index: number, list: any[]) {
-    if (date == null) {
-      list[index] = NaN
-    } else {
-      list[index] = date.slice(0, 4) + '-' + date.slice(4, 6) + '-' + date.slice(6, 8)
-    }
-  }
-  CleanNullValues(element: number, index: number, list: any[]) {
-    if (element == null) {
-      list[index] = NaN
-    }
-  }
+
+
 
   prepareChartData() {
-    this.keysList = (this.playersData["data"]["DAILY"].dates)
-    var playerOneValuesList = (this.playersData["data"]["DAILY"].dataByMember).players["john"].points
-    var playerTwoValuesList = (this.playersData["data"]["DAILY"].dataByMember).players["larry"].points
-    //cleaning null Values
-    this.keysList.forEach(this.formatDate)
-    var keysList = this.keysList.map((x:any) =>{
-      if(typeof x !== "string"){
-        return NaN
-      }
-    return new Date(x).toString().substring(4,10)})
-    console.log(this.keysList)
-    playerOneValuesList.filter(this.CleanNullValues);
-    playerTwoValuesList.filter(this.CleanNullValues);
-    console.log(this.keysList)
-    console.log(playerOneValuesList)
-    console.log(playerTwoValuesList)
-
     this.chartData = []
-    for (let i = 0; i < keysList.length; i++) {
-      this.chartData.push({
-        date: keysList[i],
-        value: playerOneValuesList[i],
-        value2: playerTwoValuesList[i]
-      })
+    if (this.selectedPlayerIndex != 0) {
+      for (let i = 0; i < this.keysList.length; i++) {
+        this.chartData.push({
+          date: this.keysList[i],
+          value: this.valuesList[this.selectedPlayerIndex - 1][i]
+        })
+      }
+    }
+    else {
+      for (let i = 0; i < this.keysList.length; i++) {
+        var dataItem: any = {}
+        for (let j = 0; j < this.valuesList.length; j++) {
+          dataItem["date"] = this.keysList[i]
+          dataItem["value" + j.toString()] = this.valuesList[j][i]
+        }
+        this.chartData.push(dataItem)
+      }
     }
   }
 
@@ -100,7 +69,6 @@ export class PlayersChartComponent implements OnInit {
     series.name = name;
     series.fillOpacity = 0.1;
     series.columns.template.width = am4core.percent(13);
-    //series.columns.template.fill = am4core.color(color)
     series.columns.template.fillOpacity = 0.5;
     var columnTemplate = series.columns.template;
     columnTemplate.strokeWidth = 2;
@@ -111,9 +79,9 @@ export class PlayersChartComponent implements OnInit {
       const data = target.tooltipDataItem.dataContext;
       return text;
     });
-
     return series;
   }
+
 
 
   createChartOptions(data: any) {
@@ -123,7 +91,7 @@ export class PlayersChartComponent implements OnInit {
     var dateAxis = this.chart.xAxes.push(new am4charts.DateAxis());
     var valueAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
     dateAxis.tooltipDateFormat = "yyyy-MM-dd";
-   // dateAxis.dataDateFormat = "YYYY-MM-DD"
+    //dateAxis.groupData = true;
     dateAxis.dataFields.category = "date";
     dateAxis.gridAlpha = 0;
     dateAxis.autoGridCount = true;
@@ -144,22 +112,18 @@ export class PlayersChartComponent implements OnInit {
     valueAxis.renderer.grid.template.strokeWidth = 1;
     //formatting yaxis Numbers
     valueAxis.numberFormatter.numberFormat = "#,###,###";
-    //Create Series
-    var series1 = this.createSeries("value", "date", "John");
-    var series2 = this.createSeries("value2", "date", "Larry");
+
+
     //font
     dateAxis.renderer.labels.template.fontSize = 12;
     dateAxis.renderer.labels.template.fontFamily = "Quicksand";
     valueAxis.renderer.labels.template.fontSize = 12;
     valueAxis.renderer.labels.template.fontFamily = "Quicksand";
     // Create series
-    this.chart.colors.list = [am4core.color('#070919')]
-    //this.chart.dateFormatter.dateFormat = "MMM dd"
-
     this.chart.cursor = new XYCursor();
     this.chart.cursor.xAxis = dateAxis
     this.chart.cursor.selection.fill = am4core.color("#c7bfbf");
-
+    //this.chart.cursor.snapToSeries = series;
     //the reset zoom button
     this.chart.zoomOutButton.disabled = true;
 
@@ -174,48 +138,73 @@ export class PlayersChartComponent implements OnInit {
       }
       dateAxis.zoomToDates(start, end);
     })
+
+
+
+    // Pre-zoom the chart
+    this.chart.events.on("datavalidated", () => {
+      if (this.keysList) {
+        dateAxis.zoomToDates(
+          (this.keysList[this.keysList.length - 10]).toString().slice(0, 10),
+          (this.keysList[this.keysList.length - 1]).toString().slice(0, 10)
+        )
+      }
+    });
+
+    // Create scrollbar
     this.chart.scrollbarX = new am4charts.XYChartScrollbar();
-    this.chart.scrollbarX.series.push(series1);
-    this.chart.scrollbarX.series.push(series2);
+    //Create Series
+    if (this.selectedPlayerIndex == 0) {
+      for (let i = 0; i < this.valuesList.length; i++) {
+        var series = this.createSeries("value" + i.toString(), "date", this.playersList[i + 1].toString());
+        this.chart.scrollbarX.series.push(series);
+      }
+    }
+    else {
+      var series = this.createSeries("value", "date", this.playersList[this.selectedPlayerIndex])
+      this.chart.scrollbarX.series.push(series);
+    }
+
+    // scrollbar Customization
     this.chart.scrollbarX.scrollbarChart.series.getIndex(0).xAxis.startLocation = 0.5;
     this.chart.scrollbarX.scrollbarChart.series.getIndex(0).xAxis.endLocation = 0.5;
     this.chart.scrollbarX.marginBottom = 0;
     this.chart.scrollbarX.parent = this.chart.bottomAxesContainer;
-
     let scrollAxis = this.chart.scrollbarX.scrollbarChart.xAxes.getIndex(0);
     scrollAxis.renderer.labels.template.disabled = true;
     scrollAxis.renderer.grid.template.disabled = true;
-
+    scrollAxis.filters.clear();
+    this.chart.scrollbarX.series.stroke = "#0000ffff"
     this.customizeGrip(this.chart.scrollbarX.startGrip);
     this.customizeGrip(this.chart.scrollbarX.endGrip);
-
     let scrollSeries1 = this.chart.scrollbarX.series.getIndex(0);
     scrollSeries1.filters.clear();
-  
     this.chart.scrollbarX.series.stroke = "#0000ffff"
 
-    // Pre-zoom the chart
-         this.chart.events.on("datavalidated", () => {
-           console.log( (new Date(this.keysList[this.keysList.length - 1]).toString().slice(0, 10)).toString().slice(4,10))
-          dateAxis.zoomToDates( 
-        ((this.keysList[this.keysList.length - 10]).toString().slice(0, 10)).toString().slice(4,10),
-          ((this.keysList[this.keysList.length - 1]).toString().slice(0, 10)).toString().slice(4,10)  
-          ) 
-        }); 
+
 
     //legend
-    this.chart.legend = new am4charts.Legend()
-    this.chart.legend.useDefaultMarker = true;
-    let marker = this.chart.legend.markers.template.children.getIndex(0);
-    marker.cornerRadius(12, 12, 12, 12);
-    marker.strokeWidth = 8;
-    marker.strokeOpacity = 1;
-    marker.stroke = am4core.color("#ffffff");
-    this.chart.legend.position = "top"
-    this.chart.legend.align = "left";
-    this.chart.legend.contentAlign = "left";
-    this.chart.legend.marginLeft = 50
-    this.chart.legend.marginBottom = 20
+    if (this.selectedPlayerIndex == 0) {
+      this.chart.legend = new am4charts.Legend()
+      this.chart.legend.useDefaultMarker = true;
+      let marker = this.chart.legend.markers.template.children.getIndex(0);
+      marker.cornerRadius(12, 12, 12, 12);
+      marker.strokeWidth = 8;
+      marker.strokeOpacity = 1;
+      marker.stroke = am4core.color("#ffffff");
+
+      if (this.valuesList.length > 6) {
+        this.chart.legend.position = "right";
+        this.chart.legend.scrollable = true;
+      }
+      else {
+        this.chart.legend.position = "top"
+        this.chart.legend.align = "left";
+        this.chart.legend.contentAlign = "left";
+        this.chart.legend.marginLeft = 50
+        this.chart.legend.marginBottom = 20
+      }
+    }
   }
 
   customizeGrip(grip: any) {

@@ -1,21 +1,35 @@
 @media screen and (min-width: 1000px) {
     .app-content{
         background-color: #f4f5fd;
-       
+        min-height: 100vh;
         padding-left: 260px;
         padding-right: 260px;
     }
-}
-.app-content {
-    flex: 1;
-    display: flex;
-    padding: 0;
-    flex-direction: column;
-    transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
-    min-height: 950px;
+
+    .chart{
+        width: 800px;
+        margin-top: 4.5rem;
+        }
 }
 
-.chart{
-width: 800px;
-//margin-top: 5rem;
+.btn-pill {
+    font-size: 15.2px;
+    height : 36px;
+    text-align: center;
+  }
+  .btn-first {
+    color: #ffffff;
+ 
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .app-content{
+        background-color: #f4f5fd;
+        min-height: 100vh;
+    }
+
+    .chart{
+        margin-top: 2rem;
+        }
 }
